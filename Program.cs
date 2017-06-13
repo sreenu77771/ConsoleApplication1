@@ -28,14 +28,46 @@ namespace ConsoleApplication1
             //node.PrintLevelorderIteratively(node);
             //node.PrintLevelorderRecursively(node);
             //Console.WriteLine(TreeNode<int>.HeightOfTreeNode(node.right));
-            //Console.WriteLine(BitTest.itoa(4));
+            Console.WriteLine(BitTest.itoa(4));
+            TestMain();
             //TestTreeConstruction();
 
             //int[] arr = {2, 2,2, 7, 8, 9 };
             //int[] arr = { 1,2, 3,4};
             //Console.WriteLine(Search.RotateArrayPivot(arr, 0, arr.Length-1));
-            ArrayTest();
+            //Console.WriteLine(RecursionPractice.changePi("xpix"));
+            //Console.WriteLine(RecursionPractice.changePi("pipi"));
+            //Console.WriteLine(RecursionPractice.changePi("pip"));
+            //Console.WriteLine(RecursionPractice.pairStar("hello"));
+            //PrintArrayOfArray(Triangle.PrintPascalTriangle(4));
+            //PrintArray(StringTest.Permutations("ABC"));
+            //StringTest.PermutationsWithRepetetion("AABC");
+            //TestTree();
+            //Graph2.TestGraph();
+            HeapTest();
             Console.Read();
+        }
+
+        private static void HeapTest()
+        {
+            List<int> arr = new List<int>{ 2, 13, 3, 12, 10 };
+
+            PrintArray<int>(arr);
+
+            MinHeap.HeapifyAtKey(arr, 1);
+
+            PrintArray<int>(arr);
+            
+            //MinHeap.extractMin(arr);
+
+            //PrintArray<int>(arr);
+
+            //MinHeap.insertKey(arr, 2);
+
+            //PrintArray<int>(arr);
+
+            //MinHeap.decreaseKey(arr, 2, 1);
+            //PrintArray<int>(arr);
         }
         private static void ArrayTest()
         {
@@ -152,8 +184,18 @@ namespace ConsoleApplication1
         {
             foreach (T t in arr)
             {
-                Console.WriteLine(t);
+                Console.Write(t + " ");
             }
+            Console.WriteLine();
+        }
+
+        private static void PrintArrayOfArray<T>(IEnumerable<IEnumerable<T>> arr)
+        {
+            foreach (var t in arr)
+            {
+                PrintArray(t);
+            }
+            Console.WriteLine();
         }
         private static void TestMain()
         {
@@ -205,14 +247,17 @@ namespace ConsoleApplication1
 
         static void TestTree()
         {
-            TreeNode<int> node = TreeNode<int>.GetSampleTree();
+            //TreeNode<int> node = TreeNode<int>.GetSampleTree();
 
-            node.PrintInorderRecursively(node);
-            Console.WriteLine();
-            node.PrintPostorderRecursively(node);
-            Console.WriteLine();
-            node.PrintPreorderRecursively(node);
-            Console.WriteLine();
+            //node.PrintInorderRecursively(node);
+            //Console.WriteLine();
+            //node.PrintPostorderRecursively(node);
+            //Console.WriteLine();
+            //node.PrintPreorderRecursively(node);
+            //Console.WriteLine();
+
+            TreeNode<int> node = TreeNode<int>.GetSampleTreeForMaxPathSum();
+            Console.WriteLine(TreeNode<int>.MaxPathSum(node));
         }
 
         public static void InorderPredecessorTest()

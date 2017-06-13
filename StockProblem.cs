@@ -176,6 +176,7 @@ namespace ConsoleApplication1
             return new Tuple<Tuple<int, int>, int>(new Tuple<int, int>(minLoc, maxLoc), (max - min));
         }
 
+        //TO Add comments
         internal static int FindMaxProfitByBuyingAndSellingManyTimes(int[] arr)
         {
             if (arr.Length < 2) return 0;
@@ -197,6 +198,7 @@ namespace ConsoleApplication1
                     max = arr[i];
                 }
             }
+            //edge case when we end array with increasing number.
             totalProfit += (max - min);
             return totalProfit;
         }

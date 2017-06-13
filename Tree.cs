@@ -344,6 +344,50 @@ namespace ConsoleApplication1
         //    wh
         //}
 
+        //Find Binary tree max path sum 
+        //http://www.geeksforgeeks.org/find-maximum-path-sum-in-a-binary-tree/
+        public static int MaxPathSum(TreeNode<int> node)
+        {
+            MaxInt max = new MaxInt();
+            MaxPathSumInternal(node, max);
+            return max.Val;
+        }
+
+        internal class MaxInt
+        {
+            public int Val;
+        }
+        private static int MaxPathSumInternal(TreeNode<int> node, MaxInt max)
+        {
+            if(node == null)
+            {
+                max.Val = 0;
+                return 0;
+            }
+
+            int left = MaxPathSumInternal(node.left, max);
+            int right = MaxPathSumInternal(node.right, max);
+            int biggerChild = Math.Max(left, right);
+            int biggerIncludingRoot = Math.Max(biggerChild + node.data, node.data);
+            int leftRightRoot = left + right + node.data;
+
+            int bigger = Math.Max(biggerIncludingRoot, leftRightRoot);
+            if (max.Val < bigger) max.Val = bigger;
+            return biggerIncludingRoot;
+        }
+
+        public static TreeNode<int> GetSampleTreeForMaxPathSum()
+        {
+            TreeNode<int> root = new TreeNode<int>(10);
+            root.left = new TreeNode<int>(2, 20, 1);
+            
+            root.right = new TreeNode<int>(10);
+            root.right.right = new TreeNode<int>(-25, 3, 4);
+
+
+            return root;
+        }
+
         public static int InorderPredecessor(TreeNode<int> node, int val)
         {
             int p = int.MinValue; //predessor
