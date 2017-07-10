@@ -43,28 +43,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Array.cs" />
-    <Compile Include="Backtracking.cs" />
-    <Compile Include="BitTest.cs" />
+    <Compile Include="Arrays\Array.cs" />
+    <Compile Include="Recursion\Backtracking.cs" />
+    <Compile Include="Bits\BitTest.cs" />
     <Compile Include="Graph\Graph.cs" />
     <Compile Include="Graph\Graph_cont1.cs" />
     <Compile Include="Graph\Graph_Cont2.cs" />
-    <Compile Include="HashSet.cs" />
-    <Compile Include="Headp.cs" />
-    <Compile Include="LinkedList.cs" />
-    <Compile Include="MatrixProblems.cs" />
-    <Compile Include="RecursionPractise.cs" />
-    <Compile Include="Search.cs" />
-    <Compile Include="Sorting.cs" />
-    <Compile Include="StockProblem.cs" />
-    <Compile Include="String.cs" />
-    <Compile Include="Tree.cs" />
+    <Compile Include="Other\HashSet.cs" />
+    <Compile Include="Other\Headp.cs" />
+    <Compile Include="LinkedList\LinkedList.cs" />
+    <Compile Include="Matrix\MatrixProblems.cs" />
+    <Compile Include="Recursion\RecursionPractise.cs" />
+    <Compile Include="Strings\Search.cs" />
+    <Compile Include="Other\Sorting.cs" />
+    <Compile Include="Other\StockProblem.cs" />
+    <Compile Include="Strings\String.cs" />
+    <Compile Include="Trees\Tree.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Triangle.cs" />
+    <Compile Include="Other\Triangle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Maths\" />
+    <Folder Include="StackAndQueue\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bits\ReadmeBit.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

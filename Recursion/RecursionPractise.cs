@@ -22,12 +22,41 @@ namespace ConsoleApplication1
             return sum + countX(str.Substring(1));
         }
 
+        //Tail Recursion
+        public static int countXWithoutSubString(String str, int strlen)
+        {
+            if (strlen == 0) return 0;
+            int val = 0;
+            if (str[strlen-1] == 'x') val = 1;
+            return val + countXWithoutSubString(str, --strlen);
+        }
 
-//        Given a string, compute recursively(no loops) a new string where all appearances of "pi" have been replaced by "3.14".
+        //Forward Recursion
+        public static void countXWithoutSubStringForward(String str, int strlen, ref int sum)
+        {
+            if (strlen != 0)
+            {
+                if (str[strlen - 1] == 'x') sum += 1;
+                countXWithoutSubStringForward(str, --strlen, ref sum);
+            }
+            return;
+        }
 
-//changePi("xpix") → "x3.14x"
-//changePi("pipi") → "3.143.14"
-//changePi("pip") → "3.14p"
+        public static int countHi(String str)
+        {
+            if (str.Length < 2) return 0;
+
+            if (str.Substring(0, 2) == "hi")
+                return 1 + countHi(str.Substring(2));
+            
+            return countHi(str.Substring(1));
+        }
+
+        //        Given a string, compute recursively(no loops) a new string where all appearances of "pi" have been replaced by "3.14".
+
+        //changePi("xpix") → "x3.14x"
+        //changePi("pipi") → "3.143.14"
+        //changePi("pip") → "3.14p"
         public static String changePi(String str)
         {
             if (str == null || str == "")
@@ -84,6 +113,12 @@ namespace ConsoleApplication1
             if (str[0] == str[1]) return (str[0] + "*" ) + str.Substring(1);
             else return (str[0] ) + str.Substring(1);
 
+        }
+
+        public static int factorial(int n)
+        {
+            if (n == 1) return 1;
+            return n * factorial(n - 1);
         }
 
 

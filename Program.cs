@@ -28,8 +28,8 @@ namespace ConsoleApplication1
             //node.PrintLevelorderIteratively(node);
             //node.PrintLevelorderRecursively(node);
             //Console.WriteLine(TreeNode<int>.HeightOfTreeNode(node.right));
-            Console.WriteLine(BitTest.itoa(4));
-            TestMain();
+            //Console.WriteLine(BitTest.itoa(4));
+            //TestMain();
             //TestTreeConstruction();
 
             //int[] arr = {2, 2,2, 7, 8, 9 };
@@ -44,7 +44,8 @@ namespace ConsoleApplication1
             //StringTest.PermutationsWithRepetetion("AABC");
             //TestTree();
             //Graph2.TestGraph();
-            HeapTest();
+            //HeapTest();
+            Console.WriteLine(RecursionPractice.countHi("xhixhxihihhhih"));
             Console.Read();
         }
 

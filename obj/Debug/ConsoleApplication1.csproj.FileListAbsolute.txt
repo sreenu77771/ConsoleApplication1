@@ -1,9 +1,0 @@
-c:\users\sreenir\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
-c:\users\sreenir\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
-c:\users\sreenir\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
-c:\users\sreenir\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
-c:\users\sreenir\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
-C:\Users\sreenir\documents\visual studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
-C:\Users\sreenir\Source\Repos\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
-C:\Users\sreenir\Source\Repos\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
-C:\Users\sreenir\Source\Repos\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
