@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 using StdLib;
 namespace Princeton
 {
-    class QuickUnionPathCompressionUF
+    class WeightedQuickUnionPathCompressionUF
     {
         private readonly int[] id;
+        private readonly int[] sz;
 
         /// <summary>
         /// Return the number of connected components
         /// </summary>
         public int Count { get; private set; }
 
-        public QuickUnionPathCompressionUF(int N)
+        public WeightedQuickUnionPathCompressionUF(int N)
         {
             Count = N;
             id = new int[N];
+            sz = new int[N];
             for (int i = 0; i < N; i++)
             {
                 id[i] = i;
@@ -27,11 +29,7 @@ namespace Princeton
 
         public int Find(int p)
         {
-            while (id[p] != p)
-            {
-                id[p] = id[id[p]];
-                p = id[p];
-            }
+            while (id[p] == p) p = id[p];
             return p;
         }
 
@@ -45,18 +43,29 @@ namespace Princeton
             p = Find(p);
             q = Find(q);
             if (p == q) return;
-            id[p] = q;
+
+            //checksize and union
+            if (sz[p] >= sz[q])
+            {
+                id[q] = p;
+                sz[p] += sz[q];
+            }
+            else
+            {
+                id[p] = q;
+                sz[q] += sz[p];
+            }
             Count--;
         }
     }
 
-    public class QuickUnionPathCompressionUFExample
+    public class WeightedQuickUnionPathCompressionUFExample
     {
         public static void Main(string[] args)
         {
             int N = StdIn.ReadInt();
 
-            QuickUnionPathCompressionUF uf = new QuickUnionPathCompressionUF(N);
+            WeightedQuickUnionPathCompressionUF uf = new WeightedQuickUnionPathCompressionUF(N);
 
             // read in a sequence of pairs of integers (each in the range 0 to N-1),
             // calling find() for each pair: If the members of the pair are not already

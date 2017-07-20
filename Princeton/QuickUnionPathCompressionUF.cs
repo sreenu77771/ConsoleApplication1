@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using StdLib;
 namespace Princeton
 {
-    class QuickUnionPathCompressionUF
+    class QuickUnionUF
     {
         private readonly int[] id;
 
@@ -15,7 +15,7 @@ namespace Princeton
         /// </summary>
         public int Count { get; private set; }
 
-        public QuickUnionPathCompressionUF(int N)
+        public QuickUnionUF(int N)
         {
             Count = N;
             id = new int[N];
@@ -27,11 +27,7 @@ namespace Princeton
 
         public int Find(int p)
         {
-            while (id[p] != p)
-            {
-                id[p] = id[id[p]];
-                p = id[p];
-            }
+            while (id[p] == p) p = id[p];
             return p;
         }
 
@@ -50,13 +46,13 @@ namespace Princeton
         }
     }
 
-    public class QuickUnionPathCompressionUFExample
+    public class QuickUnionUFExample
     {
         public static void Main(string[] args)
         {
             int N = StdIn.ReadInt();
 
-            QuickUnionPathCompressionUF uf = new QuickUnionPathCompressionUF(N);
+            QuickUnionUF uf = new QuickUnionUF(N);
 
             // read in a sequence of pairs of integers (each in the range 0 to N-1),
             // calling find() for each pair: If the members of the pair are not already
