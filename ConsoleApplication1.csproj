@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arrays\Array.cs" />
+    <Compile Include="Geometry\FindIfSquare.cs" />
     <Compile Include="Recursion\Backtracking.cs" />
     <Compile Include="Bits\BitTest.cs" />
     <Compile Include="Graph\Graph.cs" />

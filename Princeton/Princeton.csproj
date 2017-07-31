@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Princeton.MyQueueArray</StartupObject>
+    <StartupObject>FastCollinearPoints</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="collinearPoints\BruteForce.cs" />
+    <Compile Include="collinearPoints\FastSearch.cs" />
+    <Compile Include="collinearPoints\LineSegment.cs" />
+    <Compile Include="collinearPoints\Point.cs" />
     <Compile Include="MyQueueLinkedList.cs" />
     <Compile Include="MyStack.cs" />
     <Compile Include="Percolation.cs" />

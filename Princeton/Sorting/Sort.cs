@@ -60,8 +60,53 @@ namespace Princeton.Sorting
             }
         }
 
-        public void QuickSort(int[] arr)
+        public int QuickSelect(int[] arr, int KthItem)
         {
+            int lo = 0;
+            int hi = arr.Length - 1;
+
+            while (hi > lo)
+            {
+                int pivot = QuickSortPartition(arr, lo, hi);
+                if (pivot < KthItem)  lo = pivot + 1;
+                else if (pivot > KthItem) hi = pivot - 1;
+                else return arr[KthItem];
+            }
+
+            return arr[KthItem];
+
+        }
+
+        public void QuickSort(int[] arr, int lo, int hi)
+        {
+            if (lo >= hi) return;
+            int pivot = QuickSortPartition(arr, lo, hi);
+
+            QuickSort(arr, lo, pivot-1);
+            QuickSort(arr, pivot+1, hi);
+        }
+        private int QuickSortPartition(int[] arr, int lo, int hi)
+        {
+            int i = lo + 1;
+            int j = hi;
+
+            while (i < j)
+            {
+                while (arr[i] < arr[lo])
+                {
+                    if (i == hi) break;
+                    i++;
+                }
+                while (arr[j] > arr[lo])
+                {
+                    if (j == lo) break;
+                    j--;
+                }
+                    
+                exch(ref arr[i], ref arr[j]);
+            }
+            exch(ref arr[lo], ref arr[j]);
+            return j;
         }
         public void MergeSort(int[] arr, int[] aux, int lo, int hi)
         {

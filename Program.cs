@@ -45,7 +45,8 @@ namespace ConsoleApplication1
             //TestTree();
             //Graph2.TestGraph();
             //HeapTest();
-            Console.WriteLine(RecursionPractice.countHi("xhixhxihihhhih"));
+            FindIfSquare.InternalMain();
+            //Console.WriteLine(RecursionPractice.countHi("xhixhxihihhhih"));
             Console.Read();
         }
 
