@@ -45,7 +45,7 @@ namespace ConsoleApplication1
             //TestTree();
             //Graph2.TestGraph();
             //HeapTest();
-            FindIfSquare.InternalMain();
+            //ClosestPairCalc.InternalMain();
             //Console.WriteLine(RecursionPractice.countHi("xhixhxihihhhih"));
             Console.Read();
         }
