@@ -102,25 +102,25 @@ public int CompareTo(Point that)
         }
         
         public int Compare(Point p1, Point p2)
-    {
-        double slope1 = p1.slopeTo(point);
-        double slope2 = p2.slopeTo(point);
-        return ((slope1 == slope2) ? 0 : (slope1 > slope2 ? 1 : -1));
-    }
+        {
+            double slope1 = p1.slopeTo(point);
+            double slope2 = p2.slopeTo(point);
+            return ((slope1 == slope2) ? 0 : (slope1 > slope2 ? 1 : -1));
+        }
 }
 
-/**
- * Returns a string representation of this point.
- * This method is provide for debugging;
- * your program should not rely on the format of the string representation.
- *
- * @return a string representation of this point
- */
-public override string ToString()
-{
-    /* DO NOT MODIFY */
-    return "(" + x + ", " + y + ")";
-}
+    /**
+     * Returns a string representation of this point.
+     * This method is provide for debugging;
+     * your program should not rely on the format of the string representation.
+     *
+     * @return a string representation of this point
+     */
+    public override string ToString()
+    {
+        /* DO NOT MODIFY */
+        return "(" + x + ", " + y + ")";
+    }
 
     public static Point[] Clone(Point[] points)
     {

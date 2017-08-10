@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arrays\Array.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="random\ChainedInspection.cs" />
     <Compile Include="Geometry\ClosestPair.cs" />
     <Compile Include="Geometry\ClosestPair_Notworking.cs" />
     <Compile Include="Geometry\FindIfSquare.cs" />
