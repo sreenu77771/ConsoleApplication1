@@ -51,6 +51,7 @@
     <Compile Include="collinearPoints\FastSearch.cs" />
     <Compile Include="collinearPoints\LineSegment.cs" />
     <Compile Include="collinearPoints\Point.cs" />
+    <Compile Include="KdTree\KDTree.cs" />
     <Compile Include="KdTree\Point2D.cs" />
     <Compile Include="KdTree\PointSET.cs" />
     <Compile Include="KdTree\RectHV.cs" />

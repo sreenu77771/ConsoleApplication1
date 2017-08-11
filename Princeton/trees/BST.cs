@@ -118,37 +118,7 @@ namespace Princeton
                     s.Push(n.left);
             }
         }
-        public void putAlt(T key, V val)
-        {
-            root = putAlt(root, key, val);
-        }
-
-        private Node<T, V> putAlt(Node<T, V> temp, T key, V val)
-        {
-            if(temp == null)
-            {
-                var t= new Node<T, V>(key, val);
-                t.count = 1;
-                return t;
-            }
-
-            if(temp.Key.CompareTo(key) > 0 )
-            {
-                temp.left = putAlt(temp.left, key, val);
-            }
-            if (temp.Key.CompareTo(key) < 0)
-            {
-                temp.right = putAlt(temp.right, key, val);
-            }
-            else
-            {
-                temp.Val = val;
-            }
-            temp.count = 1 + size(temp.left) + size(temp.right);
-
-            return temp;
-        }
-
+        
         public int size()
         {
             return size(root);
@@ -175,6 +145,37 @@ namespace Princeton
             else if (temp.Key.CompareTo(key) < 0)
                 return 1 + rank(temp.left, key) + rank(temp.right, key);
             else return rank(temp.left, key);
+        }
+
+        public void putAlt(T key, V val)
+        {
+            root = putAlt(root, key, val);
+        }
+
+        private Node<T, V> putAlt(Node<T, V> temp, T key, V val)
+        {
+            if (temp == null)
+            {
+                var t = new Node<T, V>(key, val);
+                t.count = 1;
+                return t;
+            }
+
+            if (temp.Key.CompareTo(key) > 0)
+            {
+                temp.left = putAlt(temp.left, key, val);
+            }
+            if (temp.Key.CompareTo(key) < 0)
+            {
+                temp.right = putAlt(temp.right, key, val);
+            }
+            else
+            {
+                temp.Val = val;
+            }
+            temp.count = 1 + size(temp.left) + size(temp.right);
+
+            return temp;
         }
 
         public void put(T key, V val)
@@ -598,6 +599,7 @@ namespace Princeton
         public Node<T, V> right;
         public int count;
         public bool visisted;
+        public int depth;
 
         public T Key
         {

@@ -12,7 +12,7 @@ namespace Princeton
         {
 
 
-            BST<int, int>.InternalMain();
+            PointSET.InternalMain();
             
             Console.Read();
         }

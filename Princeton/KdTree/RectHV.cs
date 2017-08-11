@@ -4,15 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Princeton.KdTree
+namespace Princeton
 {
-    class RectHV
+    public class RectHV
     {
         private double pxmin, pymin, pxmax, pymax;
         // construct the rectangle [xmin, xmax] x [ymin, ymax] // throw a java.lang.IllegalArgumentException if (xmin > xmax) or (ymin > ymax)
         public RectHV(double xmin, double ymin,
             double xmax, double ymax)
         {
+            this.pxmin = xmin;
+            this.pymin = ymin;
+            this.pxmax = xmax;
+            this.pymax = ymax;
         }
         // minimum x-coordinate of rectangle 
         public double xmin()
