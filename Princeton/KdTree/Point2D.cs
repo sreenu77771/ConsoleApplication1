@@ -14,6 +14,11 @@ namespace Princeton
             this.px = x;
             this.py = y;
         }
+
+        public Point2D()
+        {
+        }
+
         // x-coordinate 
         public double x()
         {
@@ -40,9 +45,8 @@ namespace Princeton
         public override bool Equals(Object p)
         {
             var that = p as Point2D;
-            return (this.CompareTo(that) == 0);
-            //if ((this.y() == that.y()) && (this.x() == that.x())) return true;
-            //return false;
+            if ((this.y() == that.y()) && (this.x() == that.x())) return true;
+            return false;
         }
         //public void draw()           
         // string representation // draw to standard draw 
@@ -53,11 +57,17 @@ namespace Princeton
         }
         public int CompareTo(Point2D that)
         {
-            //if ((this.y() == that.y()) && (this.x() == that.x())) return 0;
-            //else if (((this.y() == that.y()) && (this.x() == that.x())) || (this.y() < that.y())) return -1;
-            //else return 1;
+            var px = this;
+            var py = that;
 
-            return new XPoint2DComparer().Compare(this, that);
+            if (px == null || py == null) throw new ArgumentException();
+            if (px.Equals(py)) return 0;
+            else if (px.x() > py.x()) return 1;
+            else if (px.x() < py.x()) return -1;
+            else if (px.y() > py.y()) return 1;
+            else return -1;
+
+            //return new XPoint2DComparer().Compare(this, that);
         }
 
         //int IComparable<Point2D>.CompareTo(Point2D that)

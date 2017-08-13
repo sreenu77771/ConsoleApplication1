@@ -591,7 +591,7 @@ namespace Princeton
 
 
     }
-    internal class Node<T, V>
+    public class Node<T, V>
     {
         private T key;
         private V val;

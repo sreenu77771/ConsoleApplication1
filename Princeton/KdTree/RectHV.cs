@@ -45,6 +45,24 @@ namespace Princeton
                         && (this.ymin() <= p.y()) && (p.y() <= this.ymax())
                 );
         }
+
+        public int ContainsInX(Point2D p)
+        {
+            if ((this.xmin() <= p.x()) && (p.x() <= this.xmax()))
+                return 0;
+            else if (p.x() > this.xmax())
+                return 1;
+            else return -1;
+        }
+
+        public int ContainsInY(Point2D p)
+        {
+            if ((this.ymin() <= p.y()) && (p.y() <= this.ymax()))
+                return 0;
+            else if (p.y() > this.ymax())
+                return 1;
+            else return -1;
+        }
         // does this rectangle intersect that rectangle (at one or more points)?      
         public bool Intersects(RectHV that)
         {

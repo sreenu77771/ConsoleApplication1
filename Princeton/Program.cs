@@ -12,7 +12,7 @@ namespace Princeton
         {
 
 
-            PointSET.InternalMain();
+            KDTree<int>.InternalMain();
             
             Console.Read();
         }
