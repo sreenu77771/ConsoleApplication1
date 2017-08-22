@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Princeton;
 namespace ConsoleApplication1
 {
     class MatrixProblems
@@ -41,6 +42,8 @@ namespace ConsoleApplication1
             PrintMatrix(arr);
         }
 
+
+        
         public static void RotateMatrix90Degrees(int[,] arr)
         {
             
@@ -115,5 +118,73 @@ namespace ConsoleApplication1
                 c++;
             }            
         }
+
+        //also referred as stair search.
+        public static bool Search2DSortedMatrix(int[,] arr, int target)
+        {
+            int rowLength = arr.GetLength(0) - 1;
+            int colLength = arr.GetLength(1) - 1;
+            if (arr[0, 0] > target || arr[rowLength, colLength] < target)
+                return false;
+            int i = 0;
+            int j = colLength;
+            while (i <= rowLength && j >= 0)
+            {
+                if (arr[i, j] > target)
+                {
+                    j--;
+                }
+                else if (arr[i, j] < target)
+                {
+                    i++;
+                }
+                else
+                    return true;
+            }
+
+            return false;
+        }
+
+
+        //ToDO
+        //public static int PrintKthSmallestIn2DSortedArray(int[,] arr, int target, PriorityQueue<int,int> maxHeap)
+        //{
+        //    //int rowLength = arr.GetLength(0) - 1;
+        //    //int colLength = arr.GetLength(1) - 1;
+        //    //if (arr[0, 0] > target || arr[rowLength, colLength] < target)
+        //    //    return -1;
+        //    //int i = 0;
+        //    //int j = colLength;
+        //    //while (i <= rowLength && j >= 0)
+        //    //{
+        //    //    if (arr[i, j] > target)
+        //    //    {
+        //    //        j--;
+        //    //    }
+        //    //    else if (arr[i, j] < target)
+        //    //    {
+        //    //        i++;
+        //    //    }
+        //    //    else
+        //    //        return true;
+        //    //}
+
+        //    //return false;
+        //}
+
+        public static void InternalMain()
+        {
+            int[,] arr4 = new int[4, 4]
+            {
+                {2,6,7,11 },
+                {3,8,10,12 },
+                {4,9,11,13 },
+                {5,15,16,18 }
+            };
+
+            Console.WriteLine(Search2DSortedMatrix(arr4, 14));
+           
+        }
+
     }
 }

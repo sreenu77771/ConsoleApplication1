@@ -49,6 +49,7 @@
     <Compile Include="Geometry\ClosestPair_Notworking.cs" />
     <Compile Include="Geometry\FindIfSquare.cs" />
     <Compile Include="Geometry\Point1.cs" />
+    <Compile Include="random\Fibonacci.cs" />
     <Compile Include="Recursion\Backtracking.cs" />
     <Compile Include="Bits\BitTest.cs" />
     <Compile Include="Graph\Graph.cs" />
@@ -77,6 +78,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bits\ReadmeBit.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Princeton\Princeton.csproj">
+      <Project>{cd797319-b3b4-4608-be22-3024c1157007}</Project>
+      <Name>Princeton</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

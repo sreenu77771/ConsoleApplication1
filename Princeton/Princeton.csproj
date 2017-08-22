@@ -51,10 +51,22 @@
     <Compile Include="collinearPoints\FastSearch.cs" />
     <Compile Include="collinearPoints\LineSegment.cs" />
     <Compile Include="collinearPoints\Point.cs" />
+    <Compile Include="Graph\KosarajuSharirSCC.cs" />
+    <Compile Include="Graph\DepthFirstOrder.cs" />
+    <Compile Include="Graph\DirectedBFS.cs" />
+    <Compile Include="Graph\BFSPaths.cs" />
+    <Compile Include="Graph\CC.cs" />
+    <Compile Include="Graph\DirectedCycle.cs" />
+    <Compile Include="Graph\DirectedDFS.cs" />
+    <Compile Include="Graph\Diagraph.cs" />
+    <Compile Include="Graph\Graph.cs" />
+    <Compile Include="Graph\DFSPaths.cs" />
+    <Compile Include="Graph\Topological.cs" />
     <Compile Include="KdTree\KDTree.cs" />
     <Compile Include="KdTree\Point2D.cs" />
     <Compile Include="KdTree\PointSET.cs" />
     <Compile Include="KdTree\RectHV.cs" />
+    <Compile Include="MaxHeap.cs" />
     <Compile Include="MinHeap.cs" />
     <Compile Include="MyQueueLinkedList.cs" />
     <Compile Include="MyStack.cs" />
@@ -77,7 +89,24 @@
       <Name>StdLib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Graph\largeG.txt" />
+    <Content Include="Graph\MediumG.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Graph\tinyDAG.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Graph\myDG.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Graph\tinyDG.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Graph\TinyG.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

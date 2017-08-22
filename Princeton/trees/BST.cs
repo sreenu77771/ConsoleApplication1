@@ -421,6 +421,169 @@ namespace Princeton
             this.root = this.Delete(this.root, key);
         }
         
+        public void PrintRootToLeafPaths(Node<T,V> node, Stack<T> s)
+        {
+            if (node == null) return;
+
+
+            s.Push(node.Key);
+
+            PrintRootToLeafPaths(node.left, s);
+            if (node.left == null && node.right == null)
+            {
+                PrintStack(s);
+            }
+            PrintRootToLeafPaths(node.right, s);
+            s.Pop();
+        }
+
+        public int PrintNodesHavingKLeaves(Node<T, V> node, int k)
+        {
+            if (node == null) return 0;
+
+            if (node.left == null && node.right == null)
+                return 1;
+
+            int sum =  PrintNodesHavingKLeaves(node.left, k) + PrintNodesHavingKLeaves(node.right, k);
+
+            if (sum == k)
+                Console.Write(node.Key + " ");
+            return sum;
+        }
+
+        public void PrintSpiralLevelOrder(Stack<Node<T,V>> s1, Stack<Node<T, V>> s2, int depth)
+        {
+
+            if (s1.Count == 0)
+                return;
+
+            PrintStack(s1);
+
+            if(depth % 2 == 1)
+            {
+                foreach(var v in s1)
+                {
+                    if(v.left != null)
+                    {
+                        s2.Push(v.left);
+                    }
+                    if(v.right != null)
+                    {
+                        s2.Push(v.right);
+                    }
+                }
+            }
+            else
+            {
+                foreach (var v in s1)
+                {
+                    if (v.right != null)
+                    {
+                        s2.Push(v.right);
+                    }
+                    if (v.left != null)
+                    {
+                        s2.Push(v.left);
+                    }                    
+                }
+
+            }
+
+            PrintSpiralLevelOrder(s2, new Stack<Node<T, V>>(), ++depth);
+        }
+
+        public void PrintAllNodesAtDistanceKDownStream(Node<T, V> node, int k)
+        {
+            if (node == null || k < 0)
+                return;
+
+            if(k==0)
+            {
+                Console.Write(node.Key + " ");
+            }
+
+            PrintAllNodesAtDistanceKDownStream(node.left, k - 1);
+            PrintAllNodesAtDistanceKDownStream(node.right, k - 1);
+        }
+
+        public int PrintAllNodesAtDistanceK(Node<T, V> node, Node<T, V> target,  int k)
+        {
+            if (node == null)
+                return -1;
+
+            if(node.Key.Equals(target.Key))
+            {
+                PrintAllNodesAtDistanceKDownStream(node, k);
+                return 0;
+            }
+
+            //target found in left node
+            int dl = PrintAllNodesAtDistanceK(node.left, target, k);
+            if (dl  != -1)
+            {
+                if (dl + 1 == k)
+                    Console.Write(node.Key + " ");
+                else
+                {
+                    //find nodes in right to search in other branch
+                    PrintAllNodesAtDistanceKDownStream(node.right, k - dl - 2); //2 one for ancestor and other for ancestor right.
+                }
+
+                return -1;
+
+            }
+
+            ////repeat above steps for right. i.e target found in right node
+            int dr = PrintAllNodesAtDistanceK(node.right, target, k);
+            if (dr != -1)
+            {
+                if (dr + 1 == k)
+                    Console.Write(node.Key + " ");
+                else
+                {
+                    //find nodes in right to search in other branch
+                    PrintAllNodesAtDistanceKDownStream(node.left, k - dl - 2); //2 one for ancestor and other for ancestor right.
+                }
+
+                return -1;
+
+            }
+
+            return -1;
+
+        }
+
+        ////ToDO
+        //public int PrintAllNodesAtDistanceKUsingQueue(Node<T, V> node, Node<T, V> target, Queue<Node<T,V>> q, int k)
+        //{
+        //    if (node == null)
+        //        return -1;
+
+        //    if (node.Key.Equals(target.Key))
+        //    {
+        //        PrintAllNodesAtDistanceKDownStream(node, k);
+        //        return 0;
+        //    }
+        //}
+
+        private void PrintStack(Stack<T> s)
+        {
+            foreach(var v in s)
+            {
+                Console.Write(v.ToString() + " ");
+            }
+
+            Console.WriteLine();
+        }
+        private void PrintStack(Stack<Node<T, V>> s)
+        {
+            foreach (var v in s)
+            {
+                Console.Write(v.Key.ToString() + " ");
+            }
+
+            Console.WriteLine();
+        }
 
         public static void InternalMain()
         {
@@ -464,12 +627,13 @@ namespace Princeton
             //Console.WriteLine("rank6" + tree.rank(6));
             //Console.WriteLine("rank2" + tree.rank(2));
             //Console.WriteLine("rank4" + tree.rank(4));
-                      
-            tree.delete(8);
-            Display(tree);
-            Console.WriteLine();
 
-            //tree
+            //tree.delete(8);
+            //Display(tree);
+            //Console.WriteLine();
+            //Stack<Node<int, int>> s = new Stack<Node<int, int>>();
+            //s.Push(tree.root);
+            tree.PrintAllNodesAtDistanceK(tree.root, tree.root.left, 5);
         }
 
         private static void Display(BST<int, int> tree)

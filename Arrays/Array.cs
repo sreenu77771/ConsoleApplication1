@@ -79,5 +79,53 @@ namespace ConsoleApplication1
             }
             return duplicates.ToArray<int>();
         }
+
+        public static int GivenArrayReturnIndexOfAverage(int[] arr)
+        {
+            double sum = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                sum += arr[i];
+            }
+
+            double average = Math.Round(sum / arr.Length, 2);
+
+            //find adjacent for average in case average is not found during scan. 
+            double minAfterAverage = double.MaxValue;
+            int minAfterAverageIndex = -1;
+            double maxBeforeAverage = double.MinValue;
+            int maxBeforeAverageIndex = -1;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == average)
+                    return i + 1;
+
+                if (maxBeforeAverage < arr[i] && arr[i] < average)
+                {
+                    maxBeforeAverage = arr[i];
+                    maxBeforeAverageIndex = i;
+                }
+
+                if (average < arr[i] && arr[i] < minAfterAverage)
+                {
+                    minAfterAverage = arr[i];
+                    minAfterAverageIndex = i;
+                }
+            }
+
+            if (Math.Abs(average - minAfterAverage) > Math.Abs(average - maxBeforeAverage))
+            {
+                return maxBeforeAverageIndex + 1;
+            }
+            else return minAfterAverageIndex + 1;
+
+        }
+
+        public static void InternalMain()
+        {
+            int[] arr = { 5, 3, 2, 0, 2 };
+            Console.WriteLine(GivenArrayReturnIndexOfAverage(arr));
+
+        }
     }
 }

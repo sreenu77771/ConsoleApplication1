@@ -47,6 +47,8 @@ namespace ConsoleApplication1
             //HeapTest();
             //ClosestPairCalc.InternalMain();
             //Console.WriteLine(RecursionPractice.countHi("xhixhxihihhhih"));
+
+            MyLinkedListNode.InternalMain();
             Console.Read();
         }
 

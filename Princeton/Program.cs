@@ -12,7 +12,7 @@ namespace Princeton
         {
 
 
-            KDTree<int>.InternalMain();
+            KosarajuSharirSCC.InternalMain();
             
             Console.Read();
         }

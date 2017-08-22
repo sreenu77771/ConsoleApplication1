@@ -214,5 +214,64 @@ namespace ConsoleApplication1
 
             return origHead;
         }
+
+        public static MyLinkedListNode Reverse(MyLinkedListNode node)
+        {
+            MyLinkedListNode prev = null;
+            MyLinkedListNode current = node;
+            MyLinkedListNode next = null;
+
+            while (current != null)
+            {
+                next = current.next;
+                current.next = prev;
+                prev = current;
+                current = next;
+            }
+
+            return prev;
+        }
+
+        public static MyLinkedListNode ReverseLastKElements(MyLinkedListNode node, int k)
+        {
+            //check for node null 
+            //if (node == null) throw ArgumentException();
+            MyLinkedListNode orig = node;
+            MyLinkedListNode first = node;
+            MyLinkedListNode second = node;
+
+            int i = 0;
+            while (i <= (k) && first != null)
+            {
+                first = first.next;
+                i++;
+            }
+
+            if (first != null)
+            {
+                while (first != null)
+                {
+                    first = first.next;
+                    second = second.next;
+                }
+
+
+                MyLinkedListNode reversedHeadOfKElements = Reverse(second.next);
+                second.next = reversedHeadOfKElements;
+                return node;
+            }
+
+            return Reverse(second.next); 
+        }
+
+        public static void InternalMain()
+        {
+            MyLinkedListNode n = CreateTestLinkList();
+            PrintLinkedList(n);
+
+            //PrintLinkedList(Reverse(n));
+
+            PrintLinkedList(ReverseLastKElements(n, 6));
+        }
     }
 }
