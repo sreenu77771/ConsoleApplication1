@@ -25,7 +25,7 @@ namespace Princeton
 
         public static void InternalMain()
         {
-            EdgeWeightedGraph g = new EdgeWeightedGraph(@"Graph/TinyEWG.txt");
+            EdgeWeightedGraph g = new EdgeWeightedGraph(@"Graph/testdata/TinyEWG.txt");
             Console.Write(g.ToString());
 
             MST mst = new MST(g);

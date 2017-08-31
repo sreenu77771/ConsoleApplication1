@@ -59,7 +59,7 @@ namespace Princeton
 
         public static void InternalMain()
         {
-            Graph g = new Graph(@"Graph/TinyG.txt");
+            Graph g = new Graph(@"Graph/testdata/TinyG.txt");
             Console.Write(g.toString());
 
             DFSPaths dfsPths = new DFSPaths(g, 0);

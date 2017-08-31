@@ -78,7 +78,7 @@ namespace Princeton
 
         public static void InternalMain()
         {
-            Diagraph g = new Diagraph(@"Graph/TinyDG.txt");
+            Diagraph g = new Diagraph(@"Graph/testdata/TinyDG.txt");
             Console.Write(g.toString());
 
             DirectedDFS dfsPths = new DirectedDFS(g, 6);

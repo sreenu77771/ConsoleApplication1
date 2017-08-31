@@ -146,7 +146,7 @@ namespace Princeton
 
         public static void InternalMain()
         {
-            Diagraph g = new Diagraph(@"Graph/TinyDG.txt");
+            Diagraph g = new Diagraph(@"Graph/testdata/TinyDG.txt");
             Console.Write(g.toString());
 
             DirectedBFS bfsPths = new DirectedBFS(g, 6);

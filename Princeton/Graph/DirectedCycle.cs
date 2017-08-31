@@ -72,7 +72,7 @@ namespace Princeton
 
         public static void InternalMain()
         {
-            Diagraph g = new Diagraph(@"Graph/tinyDG.txt");
+            Diagraph g = new Diagraph(@"Graph/testdata/tinyDG.txt");
             Console.Write(g.toString());
 
             DirectedCycle dc = new DirectedCycle(g);            

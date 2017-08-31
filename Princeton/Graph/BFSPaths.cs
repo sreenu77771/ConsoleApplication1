@@ -146,7 +146,7 @@ namespace Princeton
 
         public static void InternalMain()
         {
-            Graph g = new Graph(@"Graph/TinyG.txt");
+            Graph g = new Graph(@"Graph/testdata/TinyG.txt");
             Console.Write(g.toString());
 
             BFSPaths bfsPths = new BFSPaths(g, 0);

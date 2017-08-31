@@ -60,7 +60,7 @@ namespace Princeton
 
         public static void InternalMain()
         {
-            Diagraph g = new Diagraph(@"Graph/tinyDAG.txt");
+            Diagraph g = new Diagraph(@"Graph/testdata/tinyDAG.txt");
             Console.Write(g.toString());
 
             KosarajuSharirSCC cc = new KosarajuSharirSCC(g);
