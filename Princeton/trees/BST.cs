@@ -357,6 +357,10 @@ namespace Princeton
 
         private Node<T, V> FloorAltTextBook(Node<T, V> x, T key)
         {
+            //if key is root key return;
+            //otherwise look in left child if its there 
+            // other wise look in right if its there
+            //if not present in both then root should be the floor   
             if (x == null) return null;
             int cmp = key.CompareTo(x.Key);
             if (cmp == 0) return x;
